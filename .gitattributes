@@ -1,0 +1,5 @@
+# Set text files to use LF line endings
+* text eol=lf
+
+# Explicitly set binary files to use CRLF line endings on Windows
+*.exe binary eol=crlf

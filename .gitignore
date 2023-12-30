@@ -1,0 +1,12 @@
+# .gitignore
+
+# virtual environment
+/diabetes_ml_env/
+# data files
+/data/
+# Python compiled files
+__pycache__/
+# results
+/results/
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
