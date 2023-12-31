@@ -2,5 +2,5 @@
 
 raw_dataset_path: "data/raw/nhgh.tsv"
 raw_dataset_url: "https://hbiostat.org/data/repo/nhgh.tsv"
-metadata_path: "https://hbiostat.org/data/repo/nhgh"
-metadata_url: "data/raw/nhgh_metadata.csv"
+metadata_path: "data/raw/nhgh_metadata.csv"
+metadata_url: "https://hbiostat.org/data/repo/nhgh"
