@@ -1,0 +1,4 @@
+# config.yaml
+
+raw_dataset_path: "data/raw/nhgh.tsv"
+raw_dataset_url: "https://hbiostat.org/data/repo/nhgh.tsv"

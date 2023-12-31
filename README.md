@@ -15,6 +15,8 @@ This repository contains a machine learning project for predicting the presence 
 
 The project is organised as follows:
 
+- `config.yaml`: Configuration file for the project, containing settings for data paths, data processing and modelling.
+
 - `data/`: Directory to store the data.
     - `processed/`: Directory to store the processed data.
     - `raw/`: Directory to store the raw data.
@@ -38,6 +40,9 @@ The project is organised as follows:
         - [`decision_tree.py`](src/ml_models/decision_tree.py): Module for decision tree model.
         - [`logistic_regression.py`](src/ml_models/logistic_regression.py): Module for logistic regression model.
         - [`random_forest.py`](src/ml_models/random_forest.py): Module for random forest model.
+
+    - `utils/`: Module for general utility.
+        - [`config_utils.py`](src/utils/config_utils.py): Module for handling project configurations.
 
 
 ## Getting Started
