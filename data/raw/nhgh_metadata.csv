@@ -1,21 +1,21 @@
-Labels,Units,Levels,Class,Storage,NAs
-Respondent sequence number,,,integer,integer,0
-,,2.0,,integer,0
-Age,years,,numeric,double,0
-Race/Ethnicity,,5.0,,integer,0
-Family Income,,14.0,,integer,320
-On Insulin or Diabetes Meds,,,integer,integer,0
-Diagnosed with DM or Pre-DM,,,integer,integer,0
-Weight,kg,,numeric,double,0
-Standing Height,cm,,numeric,double,0
-Body Mass Index,kg/m^2,,numeric,double,0
-Upper Leg Length,cm,,numeric,double,231
-Upper Arm Length,cm,,numeric,double,179
-Arm Circumference,cm,,numeric,double,188
-Waist Circumference,cm,,numeric,double,239
-Triceps Skinfold,mm,,numeric,double,481
-Subscapular Skinfold,mm,,numeric,double,971
-Glycohemoglobin,%,,numeric,double,0
-Albumin,g/dL,,numeric,double,89
-Blood urea nitrogen,mg/dL,,integer,integer,89
-Creatinine,mg/dL,,numeric,double,89
+Name,Labels,Units,Levels,Class,Storage,NAs
+seqn,Respondent sequence number,,,integer,integer,0
+sex,,,2.0,,integer,0
+age,Age,years,,numeric,double,0
+re,Race/Ethnicity,,5.0,,integer,0
+income,Family Income,,14.0,,integer,320
+tx,On Insulin or Diabetes Meds,,,integer,integer,0
+dx,Diagnosed with DM or Pre-DM,,,integer,integer,0
+wt,Weight,kg,,numeric,double,0
+ht,Standing Height,cm,,numeric,double,0
+bmi,Body Mass Index,kg/m^2,,numeric,double,0
+leg,Upper Leg Length,cm,,numeric,double,231
+arml,Upper Arm Length,cm,,numeric,double,179
+armc,Arm Circumference,cm,,numeric,double,188
+waist,Waist Circumference,cm,,numeric,double,239
+tri,Triceps Skinfold,mm,,numeric,double,481
+sub,Subscapular Skinfold,mm,,numeric,double,971
+gh,Glycohemoglobin,%,,numeric,double,0
+albumin,Albumin,g/dL,,numeric,double,89
+bun,Blood urea nitrogen,mg/dL,,integer,integer,89
+SCr,Creatinine,mg/dL,,numeric,double,89

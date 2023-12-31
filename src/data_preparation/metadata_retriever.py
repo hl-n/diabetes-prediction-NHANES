@@ -27,7 +27,7 @@ def fetch_metadata(
         # Check if the file exists at the specified path
         if os.path.isfile(file_path):
             # Read the metadata from the file path into a Pandas DataFrame
-            df = load_dataset(file_path=file_path)
+            df = load_dataset(file_path=file_path, index_col="Name")
         else:
             # Send an HTTP GET request to the URL
             response = requests.get(url)
@@ -48,7 +48,7 @@ def fetch_metadata(
             # Create the directory for the file path
             os.makedirs(os.path.dirname(file_path), exist_ok=True)
             # Save the metadata to the specified file path
-            df.to_csv(file_path, sep=infer_separator(file_path), index=False)
+            df.to_csv(file_path, sep=infer_separator(file_path), index=True)
 
         return df
 
