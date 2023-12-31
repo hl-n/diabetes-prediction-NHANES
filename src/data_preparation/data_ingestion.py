@@ -33,8 +33,7 @@ def load_dataset(file_path: str, url: Optional[str] = None) -> pd.DataFrame:
             df.to_csv(file_path, sep=infer_separator(file_path), index=False)
         else:
             raise ValueError(
-                "Provide either a valid URL \
-                             or an existing file path."
+                "Please provide either a valid URL or an existing file path."
             )
 
         return df
@@ -69,12 +68,11 @@ def infer_separator(file_path: str) -> str:
         separator = separator_mapping.get(file_extension)
         if separator is None:
             raise ValueError(
-                f"Unsupported file type: {file_extension}. \
-                    Supported types: {', '.join(separator_mapping.keys())}"
+                f"Unsupported file type: {file_extension}. "
+                f"Supported types: {', '.join(separator_mapping.keys())}"
             )
         return separator
     except Exception as e:
         raise ValueError(
-            f"Failed to infer separator for {file_path}. \
-                         Error: {str(e)}"
+            f"Failed to infer separator for {file_path}. " f"Error: {str(e)}"
         )
