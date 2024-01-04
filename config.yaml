@@ -9,3 +9,6 @@ threshold: 6.5
 range_column: Family Income
 unique_identifier: Respondent sequence number
 max_num_categories: 20
+imputation_method: CCA
+random_state: 42
+test_size: 0.2

@@ -56,7 +56,7 @@ def index_by_identifier(
         pd.DataFrame: DataFrame with the index set to the
         specified unique identifier column.
     """
-    df.index = df[config.get("unique_identifier")]
+    df.set_index(config.get("unique_identifier"), inplace=True)
     return df
 
 
