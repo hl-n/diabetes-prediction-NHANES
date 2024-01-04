@@ -379,18 +379,19 @@ def process_data(
     df = create_target_variable(df, config)
     X_train, X_test, y_train, y_test = split_data(df, config)
     X_train, X_test = handle_missing_data(config, X_train, X_test)
-    X_train = convert_range_to_min_max(X_train, config)
-    X_test = convert_range_to_min_max(X_test, config)
+    y_train, y_test = y_train[X_train.index], y_test[X_test.index]
     X_train = convert_features_to_boolean(X_train)
     X_test = convert_features_to_boolean(X_test)
     X_train, scaler = scale_numerical_features(X_train)
     X_test = scale_numerical_features(X_test, scaler)
+    X_train, y_train = upsample_minority(X_train, y_train, config)
+    X_train = convert_range_to_min_max(X_train, config)
+    X_test = convert_range_to_min_max(X_test, config)
     if config.get("imputation_method") != "DN":
         X_train = sort_columns(X_train).dropna()
         y_train = y_train[X_train.index]
         X_test = sort_columns(X_test).dropna()
         y_test = y_test[X_test.index]
-    X_train, y_train = upsample_minority(X_train, y_train, config)
     X_train = one_hot_encode_features(X_train)
     X_test = one_hot_encode_features(X_test)
     return X_train, X_test, y_train, y_test
