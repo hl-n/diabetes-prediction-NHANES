@@ -4,7 +4,9 @@ from typing import Optional
 import pandas as pd
 
 
-def load_dataset(file_path: str, url: Optional[str] = None) -> pd.DataFrame:
+def load_dataset(
+    file_path: str, url: Optional[str] = None, index_col: Optional[str] = None
+) -> pd.DataFrame:
     """
     Load the dataset from file path or URL into a Pandas DataFrame.
 
@@ -23,7 +25,9 @@ def load_dataset(file_path: str, url: Optional[str] = None) -> pd.DataFrame:
         # Check if the file exists at the specified path
         if os.path.isfile(file_path):
             # Read the dataset from the file path into a Pandas DataFrame
-            df = pd.read_csv(file_path, sep=infer_separator(file_path))
+            df = pd.read_csv(
+                file_path, sep=infer_separator(file_path), index_col=index_col
+            )
         elif url is not None:
             # Read the dataset from the URL into a Pandas DataFrame
             df = pd.read_csv(url, sep=infer_separator(url))
