@@ -12,8 +12,8 @@ def fetch_metadata(
     file_path: str, url: Optional[str] = None
 ) -> Union[pd.DataFrame, None]:
     """
-    Fetch metadata from the specified URL
-    or load it from a file path and return it as a DataFrame.
+    Fetch metadata from the specified URL or
+    load it from a file path and return it as a DataFrame.
 
     Parameters:
     - file_path (str): The path to the metadata file.
@@ -55,3 +55,39 @@ def fetch_metadata(
     except Exception as e:
         print(f"Failed to retrieve data. Error: {str(e)}")
         return None
+
+
+def infer_missing_metadata(
+    raw_df: pd.DataFrame, metadata_df: pd.DataFrame, config: dict
+) -> pd.DataFrame:
+    """
+    Infer missing metadata information
+    based on the raw dataset and provided configuration.
+
+    Parameters:
+    - raw_df (pd.DataFrame): The raw dataset.
+    - metadata_df (pd.DataFrame): The metadata DataFrame with missing values.
+    - config (dict): Configuration settings.
+        - max_num_categories (int):
+          The maximum number of categories a categorical variable can have.
+
+    Returns:
+    - pd.DataFrame: Updated metadata DataFrame.
+    """
+    for index, row in metadata_df.iterrows():
+        if pd.isna(row["Labels"]):
+            metadata_df.loc[index, "Labels"] = index.title()
+        if pd.isna(row["Levels"]):
+            num_categories = raw_df[index].nunique()
+            if (raw_df[index].dtype == "object") or (
+                num_categories <= config.get("max_num_categories")
+            ):
+                metadata_df.loc[index, "Levels"] = num_categories
+        if pd.isna(row["Class"]):
+            if raw_df[index].dtype == "object":
+                metadata_df.loc[index, "Class"] = "categorical"
+            elif raw_df[index].dtype == "int64":
+                metadata_df.loc[index, "Class"] = "integer"
+            elif raw_df[index].dtype == "float64":
+                metadata_df.loc[index, "Class"] = "numeric"
+    return metadata_df

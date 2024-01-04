@@ -1,6 +1,11 @@
-# config.yaml
-
-raw_dataset_path: "data/raw/nhgh.tsv"
-raw_dataset_url: "https://hbiostat.org/data/repo/nhgh.tsv"
-metadata_path: "data/raw/nhgh_metadata.csv"
-metadata_url: "https://hbiostat.org/data/repo/nhgh"
+metadata_path: data/raw/nhgh_metadata.csv
+metadata_url: https://hbiostat.org/data/repo/nhgh
+raw_dataset_path: data/raw/nhgh.tsv
+raw_dataset_url: https://hbiostat.org/data/repo/nhgh.tsv
+results_folder_path: results/
+target: "Glycohemoglobin ≥ 6.5%"
+feature: "Glycohemoglobin ($\\%$)"
+threshold: 6.5
+range_column: Family Income
+unique_identifier: Respondent sequence number
+max_num_categories: 20
